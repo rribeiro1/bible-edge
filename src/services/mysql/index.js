@@ -15,8 +15,8 @@ const errorHandler = (error, msg, rejectFunction) => {
 
 const dependencies = { connection, errorHandler }
 
-const versesModule = require('./verses')(dependencies)
+const passagesModule = require('./passages')(dependencies)
 
 module.exports = {
-  verses: () => versesModule
+  passages: () => passagesModule
 }

@@ -1,8 +1,8 @@
-const verses = require('./modules/verses')
+const passages = require('./modules/passages')
 const db = require('../services/mysql')
 
 const routes = (server) => {
-  verses(server)
+  passages(server)
 }
 
 module.exports = routes
