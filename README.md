@@ -1,12 +1,12 @@
 # API Bíblia versão NVI
 
-> Este projeto foi desenvolvido baseado na série de screencasts disponível em [https://www.youtube.com/playlist?list=PLFJmwzuHdBRTBbkyH0gATtDhj6ikOIkMy](https://www.youtube.com/playlist?list=PLFJmwzuHdBRTBbkyH0gATtDhj6ikOIkMy)
+> Este projeto foi desenvolvido para treinar o desenvolvimento de API's com NodeJs e foi baseado na série de screencasts disponível em [https://www.youtube.com/playlist?list=PLFJmwzuHdBRTBbkyH0gATtDhj6ikOIkMy](https://www.youtube.com/playlist?list=PLFJmwzuHdBRTBbkyH0gATtDhj6ikOIkMy)
 
 > A versão NVI utilizada foi baseada no repositório disponível em https://github.com/thiagobodruk/biblia
 
 ### Objetivo
 
-API responsável por obter os versículos da Bíblia
+API responsável por obter as passagens da Bíblia
 
 ### Pré-requisitos
 
@@ -30,5 +30,5 @@ Utilize o Postman para testar suas chamadas. [https://www.getpostman.com/](https
 
 ### Tecnologias
 
-**MySQL:** Banco de dados relacional
-**NodeJs** Framework desenvolvimento Javascript
+**MySQL:** Banco de dados relacional; 
+**NodeJs** Framework desenvolvimento Javascript.
