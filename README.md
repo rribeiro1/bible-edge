@@ -2,8 +2,7 @@
 
 > Este projeto foi desenvolvido baseado na série de screencasts disponível em [https://www.youtube.com/playlist?list=PLFJmwzuHdBRTBbkyH0gATtDhj6ikOIkMy](https://www.youtube.com/playlist?list=PLFJmwzuHdBRTBbkyH0gATtDhj6ikOIkMy)
 
-> A versão NVI utilizada foi baseada no repositório disponível em 
-[https://github.com/thiagobodruk/biblia] (https://github.com/thiagobodruk/biblia)
+> A versão NVI utilizada foi baseada no repositório disponível em https://github.com/thiagobodruk/biblia
 
 ### Objetivo
 
