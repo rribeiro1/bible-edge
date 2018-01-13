@@ -1,10 +1,13 @@
-const passages = require('./modules/passages')
 const books = require('./modules/books')
-const db = require('../services/mysql')
+const chapters = require('./modules/chapters')
+const passages = require('./modules/passages')
+const verses = require('./modules/verses')
 
 const routes = (server) => {
-  passages(server)
   books(server)
+  chapters(server)
+  verses(server)
+  passages(server)
 }
 
 module.exports = routes

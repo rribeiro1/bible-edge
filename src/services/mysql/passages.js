@@ -14,7 +14,7 @@ const passages = deps => {
                          'INNER JOIN books ON verses.book = books.id ' +
                          'WHERE verses.id = ?', id, (error, results) => {
           if (error) {
-            errorHandler(error, 'Falha ao listar versículo', reject)
+            errorHandler(error, 'Falha ao listar passagens', reject)
             return false
           }
           resolve({ passage: results[0] })

@@ -15,10 +15,14 @@ const errorHandler = (error, msg, rejectFunction) => {
 
 const dependencies = { connection, errorHandler }
 
-const passagesModule = require('./passages')(dependencies)
 const booksModule = require('./books')(dependencies)
+const chaptersModule = require('./chapters')(dependencies)
+const versesModule = require('./verses')(dependencies)
+const passagesModule = require('./passages')(dependencies)
 
 module.exports = {
+  books: () => booksModule,
+  chapters: () => chaptersModule,
   passages: () => passagesModule,
-  books: () => booksModule
+  verses: () => versesModule
 }

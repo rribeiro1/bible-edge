@@ -1,12 +1,20 @@
 # API Bíblia versão NVI
 
-> Este projeto foi desenvolvido para treinar o desenvolvimento de API's com NodeJs e foi baseado na série de screencasts disponível em [https://www.youtube.com/playlist?list=PLFJmwzuHdBRTBbkyH0gATtDhj6ikOIkMy](https://www.youtube.com/playlist?list=PLFJmwzuHdBRTBbkyH0gATtDhj6ikOIkMy)
+> Este projeto foi desenvolvido como objeto de estudos do desenvolvimento de API's utilizando NodeJs e foi baseado na série de screencasts disponível em [https://www.youtube.com/playlist?list=PLFJmwzuHdBRTBbkyH0gATtDhj6ikOIkMy](https://www.youtube.com/playlist?list=PLFJmwzuHdBRTBbkyH0gATtDhj6ikOIkMy)
 
 > A versão NVI utilizada foi baseada no repositório disponível em https://github.com/thiagobodruk/biblia
 
 ### Objetivo
 
 API responsável por obter as passagens da Bíblia
+
+### Rotas
+
+> **GET /books** Obtém a lista de livros disponíveis
+> **GET /books/{:bookId}/chapters** Obtém a lista de capítulos disponíveis de um livro
+> **GET /books/{:bookId}/chapters/{:chapterId}/verses** Obtém a lista de versículos de um livro e capítulo
+> **GET /books/{:bookId}/chapters/{:chapterId}/versesbooks/{:verseId}** Obtém um versículo
+> **GET /passages/:id** Obtém uma passagem pelo ID
 
 ### Pré-requisitos
 
