@@ -10,11 +10,11 @@ API responsável por obter as passagens da Bíblia
 
 ### Rotas
 
-> **GET /books** Obtém a lista de livros disponíveis
-> **GET /books/{:bookId}/chapters** Obtém a lista de capítulos disponíveis de um livro
-> **GET /books/{:bookId}/chapters/{:chapterId}/verses** Obtém a lista de versículos de um livro e capítulo
-> **GET /books/{:bookId}/chapters/{:chapterId}/versesbooks/{:verseId}** Obtém um versículo
-> **GET /passages/:id** Obtém uma passagem pelo ID
+> - **GET /books** Obtém a lista de livros disponíveis
+> - **GET /books/{:bookId}/chapters** Obtém a lista de capítulos disponíveis de um livro
+> - **GET /books/{:bookId}/chapters/{:chapterId}/verses** Obtém a lista de versículos de um livro e capítulo
+> - **GET /books/{:bookId}/chapters/{:chapterId}/versesbooks/{:verseId}** Obtém um versículo
+> - **GET /passages/:id** Obtém uma passagem pelo ID
 
 ### Pré-requisitos
 
