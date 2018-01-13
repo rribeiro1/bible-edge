@@ -15,6 +15,8 @@ API responsável por obter as passagens da Bíblia
 > - **GET /books/{:bookId}/chapters/{:chapterId}/verses** Obtém a lista de versículos de um livro e capítulo
 > - **GET /books/{:bookId}/chapters/{:chapterId}/versesbooks/{:verseId}** Obtém um versículo
 > - **GET /passages/:id** Obtém uma passagem pelo ID
+> - **GET /passages/:id/next** Obtém a pŕoxima passagem pelo ID
+> - **GET /passages/:id/previous** Obtém a passagem anterior pelo ID
 
 ### Pré-requisitos
 
