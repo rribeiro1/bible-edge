@@ -21,7 +21,7 @@ const verses = deps => {
       return new Promise((resolve, reject) => {
         const { connection, errorHandler } = deps
 
-        const query = 'select v.id, b.name as book, v.chapter, v.verse, v.text from verses as v inner join books as b on v.book = b.id where v.book = ? and v.chapter = ? and v.verse = ?'
+        const query = 'select v.id, b.id as bookId, b.name as book, v.chapter, v.verse, v.text from verses as v inner join books as b on v.book = b.id where v.book = ? and v.chapter = ? and v.verse = ?'
         const params = [bookId, chapterId, verseId]
 
         connection.query(query, params, (error, results) => {
