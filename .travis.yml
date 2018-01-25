@@ -1,8 +1,39 @@
+# see https://docs.travis-ci.com/user/languages/javascript-with-nodejs/ for more hints
 language: node_js
+
 sudo: false
+
+# list any Node version you want to test against
 node_js:
+# aliased to 8.4.0
   - "8.4"
+
+services:
+  - mysql
+
+addons:
+  apt:
+    sources:
+      - mysql-5.7-trusty
+    packages:
+      - mysql-server
+
+# optionally specify a list of environments, for example to test different RDBMS
+env:
+  - DB=mysql
+  - MYSQL_HOST=localhost
+  - MYSQL_USERNAME=root
+  - MYSQL_PASSWORD=
+  - MYSQL_DATABASE=pibat_bible
+  - MYSQL_TEST_DATABASE=pibat_bible
+  - PORT=3003
+
+# execute any number of scripts before the test run, custom env's are available as variables
+before_script:
+    - if [[ "$DB" == "mysql" ]]; then mysql -e "create database IF NOT EXISTS pibat_bible;" -uroot; fi
+
 install:
   - npm install
+
 script:
   - npm test
