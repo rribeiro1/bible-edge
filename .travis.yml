@@ -20,13 +20,15 @@ addons:
 
 # optionally specify a list of environments, for example to test different RDBMS
 env:
-  - DB=mysql
-  - MYSQL_HOST=localhost
-  - MYSQL_USERNAME=root
-  - MYSQL_PASSWORD=
-  - MYSQL_DATABASE=pibat_bible
-  - MYSQL_TEST_DATABASE=pibat_bible
-  - PORT=3003
+  global:
+    - MYSQL_HOST=localhost
+    - MYSQL_USERNAME=root
+    - MYSQL_PASSWORD=
+    - MYSQL_DATABASE=pibat_bible
+    - MYSQL_TEST_DATABASE=pibat_bible
+    - PORT=3003
+  matrix:
+    - DB=mysql
 
 # execute any number of scripts before the test run, custom env's are available as variables
 before_script:
