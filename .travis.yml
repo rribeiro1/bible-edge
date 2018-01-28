@@ -32,8 +32,9 @@ env:
 
 # execute any number of scripts before the test run, custom env's are available as variables
 before_script:
-  - mysql -u root --default-character-set=utf8 baladay < sql/schema.sql
-#    - if [[ "$DB" == "mysql" ]]; then mysql -e "create database IF NOT EXISTS pibat_bible;" -uroot; fi
+  - mysql -e "create database IF NOT EXISTS pibat_bible;" -uroot; fi
+  - mysql -u root --default-character-set=utf8 pibat_bible < sql/schema.sql
+#    - if [[ "$DB" == "mysql" ]]; then 
 
 install:
   - npm install
