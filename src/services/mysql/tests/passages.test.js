@@ -10,8 +10,8 @@ test('Obter Passagem por Id', async t => {
 })
 
 test('Obter Próxima Passagem Bíblica Válida', async t => {
-  const expected = await passages.next(31061)
-  t.is(expected.passage.text, 'A graça do Senhor Jesus seja com todos. Amém.')
+  const expected = await passages.next(1)
+  t.is(expected.passage.text, 'Era a terra sem forma e vazia; trevas cobriam a face do abismo, e o Espírito de Deus se movia sobre a face das águas.')
 })
 
 test('Obter Passagem Bíblica Anterior Válida', async t => {
