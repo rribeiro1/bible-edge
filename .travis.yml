@@ -34,7 +34,7 @@ env:
 before_script:
   - mysql -e 'create database IF NOT EXISTS pibat_bible;'
   - mysql -u root --default-character-set=utf8 pibat_bible < sql/schema.sql
-  - mysql -u root --default-character-set=utf8 pibat_bible < sql/scripts.sql
+  - mysql -u root --default-character-set=utf8 pibat_bible < sql/tests.sql
 
 install:
   - npm install
