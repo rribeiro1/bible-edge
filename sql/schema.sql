@@ -27,4 +27,4 @@ CREATE TABLE IF NOT EXISTS `verses`(
 	`verse` INT NULL,
 	`text` TEXT NULL,
 	PRIMARY KEY (`id`) 
-ENGINE = InnoDB;
+) ENGINE = InnoDB;
