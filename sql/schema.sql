@@ -17,6 +17,7 @@ CREATE TABLE IF NOT EXISTS `books`(
 ) ENGINE = InnoDB;
 
 -- Create syntax for TABLE 'verses'
+DROP TABLE IF EXISTS `verses`;
 CREATE TABLE IF NOT EXISTS `verses`(
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`version` VARCHAR(10) NULL,
