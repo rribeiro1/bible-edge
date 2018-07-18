@@ -10,6 +10,8 @@
 
 API responsável por obter as passagens da Bíblia
 
+> O frontend deste projeto foi desenvolvido com VueJs e está disponível em: `https://github.com/rribeiro1/bible-vue`
+
 ### Rotas
 
 > - **`GET` /books** Obtém a lista de livros disponíveis
@@ -35,6 +37,14 @@ API responsável por obter as passagens da Bíblia
 5. Rode o servidor de desenvolvimento com `npm run dev` ou modo produção com `npm run production`;
 6. Rode os testes com `npm test`. Para observar os arquivos durante o desenvolvimento utilize `npm test -- --watch`;
 7. O *endpoint* do serviço estará disponível em http://localhost:3003 .
+
+### Rodando com Docker
+
+> docker run -p 8080:8080 -d rribeiro1/bible-edge 
+
+- Entrar no Container 
+
+> docker exec -it <container id> /bin/bash
 
 ### Sugestão
 
