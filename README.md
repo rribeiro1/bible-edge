@@ -56,5 +56,5 @@ Utilize o Postman para testar suas chamadas. [https://www.getpostman.com/](https
 
 ### Tecnologias
 
-**MySQL:** Banco de dados relacional; 
-**NodeJs** Framework desenvolvimento Javascript.
+- **MySQL:** Banco de dados relacional; 
+- **NodeJs** Framework desenvolvimento Javascript.
