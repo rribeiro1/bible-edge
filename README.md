@@ -1,10 +1,8 @@
-# API Bíblia versão NVI
+# API Bíblia versão NVI [![Build Status](https://travis-ci.org/rribeiro1/bible-edge.svg?branch=master)](https://travis-ci.org/rribeiro1/bible-edge)
 
 <p align="center">
   <img src="https://github.com/rribeiro1/bible-edge/blob/master/resources/images/icon.png" width="80" alt="accessibility text">
 </p>
-
-[![Build Status](https://travis-ci.org/rribeiro1/bible-edge.svg?branch=master)](https://travis-ci.org/rribeiro1/bible-edge)
 
 > Este projeto foi desenvolvido como objeto de estudos do desenvolvimento de API's utilizando NodeJs e foi baseado na série de screencasts disponível em [https://www.youtube.com/playlist?list=PLFJmwzuHdBRTBbkyH0gATtDhj6ikOIkMy](https://www.youtube.com/playlist?list=PLFJmwzuHdBRTBbkyH0gATtDhj6ikOIkMy)
 
