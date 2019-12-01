@@ -20,7 +20,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^3.1.0",
     "mysql": "^2.17.1",
-    "nodemon": "^1.19.1",
+    "nodemon": "^2.0.1",
     "restify": "^6.4.0",
     "restify-cors-middleware": "^1.1.1"
   }
