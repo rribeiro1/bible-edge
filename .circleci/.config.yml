@@ -1,0 +1,59 @@
+version: 2.1 # use CircleCI 2.1
+jobs: # a collection of steps
+  build: # runs not using Workflows must have a `build` job as entry point
+    working_directory: ~/app # directory where steps will run
+    docker: # run the steps with Docker
+      - image: circleci/node:10.16.3 # ...with this image as the primary container; this is where all `steps` will run
+    steps: # a collection of executable commands
+      - checkout # special step to check out source code to working directory
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache: # special step to restore the dependency cache
+          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+          key: dependency-cache-{{ checksum "package-lock.json" }}
+      - run:
+          name: install-npm-wee
+          command: npm install
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
+      - persist_to_workspace:
+          root: ~/app
+
+  build_container:
+    docker:
+      - image: rhinogram/node-awscli:latest
+
+    working_directory: ~/app
+
+    steps:
+      - setup_remote_docker
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: "Build & Push Docker Image"
+          command: |
+            export AWS_ACCESS_KEY_ID="${DEPLOY_ECR_AWS_ACCESS_KEY_ID}"
+            export AWS_SECRET_ACCESS_KEY="${DEPLOY_ECR_AWS_SECRET_ACCESS_KEY}"
+            eval $(aws ecr get-login --no-include-email)
+            docker build -t "$AWS_ECR_URL/bible-edge:latest" -t "$AWS_ECR_URL/bible-edge:$CIRCLE_SHA1" .
+            docker push "$AWS_ECR_URL/bible-edge:$CIRCLE_SHA1"
+
+workflows:
+  version: 2
+
+  # run on every commit
+  build:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore: /master/
+      - build_container:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: /master/
