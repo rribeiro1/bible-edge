@@ -4,15 +4,15 @@
   <img src="https://github.com/rribeiro1/bible-edge/blob/master/resources/images/icon.png" width="80" alt="accessibility text">
 </p>
 
-> Este projeto foi desenvolvido como objeto de estudos do desenvolvimento de API's utilizando NodeJs e foi baseado na série de screencasts disponível em [https://www.youtube.com/playlist?list=PLFJmwzuHdBRTBbkyH0gATtDhj6ikOIkMy](https://www.youtube.com/playlist?list=PLFJmwzuHdBRTBbkyH0gATtDhj6ikOIkMy)
+> Este projeto foi desenvolvido como objeto de estudos do desenvolvimento de API's utilizando NodeJs e foi baseado na série de screencasts do [Fabio Vedovelli](https://www.youtube.com/playlist?list=PLFJmwzuHdBRTBbkyH0gATtDhj6ikOIkMy)
 
-> A versão NVI utilizada foi baseada no repositório disponível em https://github.com/thiagobodruk/biblia
+> A versão NVI utilizada foi baseada neste [Repositório da Bíblia](https://github.com/thiagobodruk/biblia)
 
 ### Objetivo
 
 API responsável por obter as passagens da Bíblia
 
-> O frontend deste projeto foi desenvolvido com VueJs e está disponível em: `https://github.com/rribeiro1/bible-vue`
+> O frontend deste projeto [bible-vue](https://github.com/rribeiro1/bible-vue) foi desenvolvido com VueJs.
 
 ### Rotas
 
@@ -42,10 +42,13 @@ API responsável por obter as passagens da Bíblia
 
 ### Rodando com Docker
 
-> docker run -p 8080:8080 -d rribeiro1/bible-edge 
+- Criar a imagem
+> docker build -t bible-edge:latest
 
-- Entrar no Container 
+- Criar Container
+> docker run -p 8080:8080 -d -t bible-edge:latest
 
+- Iniciar bash a partir do Container
 > docker exec -it <container id> /bin/bash
 
 ### Sugestão
@@ -54,5 +57,5 @@ Utilize o Postman para testar suas chamadas. [https://www.getpostman.com/](https
 
 ### Tecnologias
 
-- **MySQL:** Banco de dados relacional; 
+- **MySQL:** Banco de dados relacional;
 - **NodeJs** Framework desenvolvimento Javascript.
