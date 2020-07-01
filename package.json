@@ -11,7 +11,7 @@
   "author": "Rafael Ribeiro @rribeiro1",
   "license": "ISC",
   "devDependencies": {
-    "ava": "^3.8.2",
+    "ava": "^3.9.0",
     "dotenv": "^8.2.0",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
