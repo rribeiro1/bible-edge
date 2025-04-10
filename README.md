@@ -4,9 +4,7 @@
   <img src="https://github.com/rribeiro1/bible-edge/blob/master/resources/images/icon.png" width="80" alt="accessibility text">
 </p>
 
-> Este projeto foi desenvolvido como objeto de estudos do desenvolvimento de API's utilizando NodeJs e foi baseado na série de screencasts do [Fabio Vedovelli](https://www.youtube.com/playlist?list=PLFJmwzuHdBRTBbkyH0gATtDhj6ikOIkMy)
-
-> A versão NVI utilizada foi baseada neste [Repositório da Bíblia](https://github.com/thiagobodruk/biblia)
+> Este projeto foi desenvolvido como objeto de estudos do desenvolvimento de API's utilizando NodeJs, ORM, and Fastify.
 
 ### Objetivo
 
@@ -20,9 +18,9 @@ API responsável por obter as passagens da Bíblia
 > - **`GET` /books/{:bookId}/chapters** Obtém a lista de capítulos disponíveis de um livro
 > - **`GET` /books/{:bookId}/chapters/{:chapterId}/verses** Obtém a lista de versículos de um livro e capítulo
 > - **`GET` /books/{:bookId}/chapters/{:chapterId}/verses/{:verseId}** Obtém um versículo
-> - **`GET` /passages/:id** Obtém uma passagem pelo ID
-> - **`GET` /passages/:id/next** Obtém a pŕoxima passagem pelo ID
-> - **`GET` /passages/:id/previous** Obtém a passagem anterior pelo ID
+> - **`GET` /verses/:id** Obtém uma passagem pelo ID
+> - **`GET` /verses/:id/next** Obtém a pŕoxima passagem pelo ID
+> - **`GET` /verses/:id/previous** Obtém a passagem anterior pelo ID
 
 ### Pré-requisitos
 
