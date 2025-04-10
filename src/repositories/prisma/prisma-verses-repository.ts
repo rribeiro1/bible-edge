@@ -20,26 +20,11 @@ export class PrismaVersesRepository implements VersesRepository {
     return chaptersList.length ? { chapters: chaptersList } : null
   }
 
-  async findVerseNumbers(bookId: number, chapterId: number) {
-    const bookIdNumber = Number(bookId)
-    const chapterIdNumber = Number(chapterId)
-    const verses = await prisma.verse.findMany({
-      where: { book_id: bookIdNumber, chapter: chapterIdNumber },
-      select: { id: true },
-    })
-    const versesList = verses.map((verse) => verse.id)
-    return versesList.length ? { verses: versesList } : null
-  }
-
   async findManyByBookAndChapter(bookId: number, chapterId: number) {
     const bookIdNumber = Number(bookId)
     const chapterIdNumber = Number(chapterId)
     return await prisma.verse.findMany({
       where: { book_id: bookIdNumber, chapter: chapterIdNumber },
     })
-  }
-
-  async findAll() {
-    return await prisma.book.findMany()
   }
 }

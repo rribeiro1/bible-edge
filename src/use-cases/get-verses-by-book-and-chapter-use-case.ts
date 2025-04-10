@@ -1,6 +1,5 @@
 import { VersesRepository } from '@/repositories/verses-repository'
 import { Verse } from '@prisma/client'
-import { ResourceNotFoundError } from './errors/resource-not-found-error'
 
 interface GetVersesByBookAndChapterUseCaseRequest {
   bookId: number
@@ -22,9 +21,6 @@ export class GetVersesByBookAndChapterUseCase {
       bookId,
       chapterId,
     )
-    if (verses.length === 0) {
-      throw new ResourceNotFoundError()
-    }
     return {
       verses,
     }

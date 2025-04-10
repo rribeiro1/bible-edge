@@ -7,7 +7,5 @@ export async function getAllBooks(
 ) {
   const useCase = makeGetBooksUseCase()
   const { books } = await useCase.execute()
-  return response.status(200).send({
-    books,
-  })
+  return response.status(200).send({ books })
 }

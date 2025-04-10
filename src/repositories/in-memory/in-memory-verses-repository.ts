@@ -49,19 +49,10 @@ export class InMemoryVersesRepository implements VersesRepository {
     return uniqueChapters.length > 0 ? { chapters: uniqueChapters } : null
   }
 
-  async findVerseNumbers(bookId: number, chapterId: number) {
-    const verses = this.items
-      .filter(
-        (verse) => verse.book_id === bookId && verse.chapter === chapterId,
-      )
-      .map((verse) => verse.verse)
-    const uniqueVerses = Array.from(new Set(verses))
-    return uniqueVerses.length > 0 ? { verses: uniqueVerses } : null
-  }
-
   async findManyByBookAndChapter(bookId: number, chapterId: number) {
-    return this.items.filter(
+    const verses = this.items.filter(
       (verse) => verse.book_id === bookId && verse.chapter === chapterId,
     )
+    return verses
   }
 }

@@ -18,7 +18,6 @@ A API é ideal para aplicações frontend que exibem passagens bíblicas, como s
 > - **`GET` /books** Obtém a lista de livros disponíveis.
 > - **`GET` /books/{:bookId}/chapters** Obtém a lista de capítulos disponíveis de um livro.
 > - **`GET` /books/{:bookId}/chapters/{:chapterId}/verses** Obtém a lista de versículos de um livro e capítulo.
-> - **`GET` /books/{:bookId}/chapters/{:chapterId}/verses/{:verseId}** Obtém um versículo dado um livro e capítulo.
 > - **`GET` /verses/:id** Obtém uma passagem pelo ID.
 > - **`GET` /verses/:id/next** Obtém a pŕoxima passagem pelo ID.
 > - **`GET` /verses/:id/previous** Obtém a passagem anterior pelo ID.

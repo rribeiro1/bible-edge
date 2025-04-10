@@ -20,4 +20,10 @@ describe('Get Books Use Case', async () => {
       expect.objectContaining({ id: 2, name: 'Exodus', abbrev: 'Ex' }),
     ])
   })
+
+  it('should return an empty list if no books are found', async () => {
+    booksRepository.items = []
+    const { books } = await underTest.execute()
+    expect(books).toHaveLength(0)
+  })
 })

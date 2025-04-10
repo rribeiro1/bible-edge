@@ -2,7 +2,7 @@ import { Book } from '@prisma/client'
 import { BooksRepository } from '../books-repository'
 
 export class InMemoryBooksRepository implements BooksRepository {
-  private items: Book[] = [
+  public items: Book[] = [
     {
       id: 1,
       name: 'Genesis',
