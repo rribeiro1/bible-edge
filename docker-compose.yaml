@@ -1,0 +1,9 @@
+services:
+  bible-db:
+    image: 'bitnami/postgresql'
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRESQL_DATABASE=bible
+      - POSTGRESQL_USERNAME=docker
+      - POSTGRESQL_PASSWORD=docker
