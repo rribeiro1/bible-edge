@@ -2,6 +2,7 @@
   "name": "bible-edge",
   "version": "0.1.0",
   "description": "API Bíblia NVI",
+  "type": "module",
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "start": "node build/server.js",
