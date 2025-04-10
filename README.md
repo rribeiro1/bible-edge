@@ -1,4 +1,4 @@
-# API Bíblia NVI
+# API Bíblia NVI [![Run Unit Tests](https://github.com/rribeiro1/bible-edge/actions/workflows/run-unit-tests.yaml/badge.svg)](https://github.com/rribeiro1/bible-edge/actions/workflows/run-unit-tests.yaml)
 
 <p align="center">
   <img src=".github/assets/icon.png" width="80" alt="accessibility text">
