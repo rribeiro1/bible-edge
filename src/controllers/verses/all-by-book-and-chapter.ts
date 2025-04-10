@@ -6,11 +6,13 @@ export async function getVersesByBookAndChapter(
   request: FastifyRequest,
   reply: FastifyReply,
 ) {
-  const getVerseNumbersSchema = z.object({
+  const getVersesByBookAndChapterSchema = z.object({
     bookId: z.coerce.number(),
     chapterId: z.coerce.number(),
   })
-  const { bookId, chapterId } = getVerseNumbersSchema.parse(request.params)
+  const { bookId, chapterId } = getVersesByBookAndChapterSchema.parse(
+    request.params,
+  )
   const useCase = makeGetVersesByBookAndChapterUseCase()
   const { verses } = await useCase.execute({
     bookId,
