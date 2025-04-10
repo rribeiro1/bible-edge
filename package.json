@@ -11,8 +11,9 @@
     "test:ui": "vitest --ui",
     "test:watch": "vitest --dir test/use-cases --watch",
     "test:coverage": "vitest run --coverage",
-    "production": "node_env=PRODUCTION pm2 start src/index.js --name bible-edge",
-    "database:seed": "export PGPASSWORD=docker && psql -h localhost -U docker -d bible -f ./seed/data.sql"
+    "database:migrate": "npx prisma migrate deploy",
+    "database:seed": "export PGPASSWORD=docker && psql -h localhost -U docker -d bible -f ./seed/data.sql",
+    "production": "node_env=PRODUCTION pm2 start src/index.js --name bible-edge"
   },
   "author": "Rafael Ribeiro @rribeiro1",
   "license": "ISC",

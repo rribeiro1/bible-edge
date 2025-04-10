@@ -1,53 +1,94 @@
-# API Bíblia versão NVI [![Build Status](https://travis-ci.org/rribeiro1/bible-edge.svg?branch=master)](https://travis-ci.org/rribeiro1/bible-edge)
+# API Bíblia NVI
 
 <p align="center">
-  <img src="https://github.com/rribeiro1/bible-edge/blob/master/resources/images/icon.png" width="80" alt="accessibility text">
+  <img src=".github/assets/icon.png" width="80" alt="accessibility text">
 </p>
 
-> Este projeto foi desenvolvido como objeto de estudos do desenvolvimento de API's utilizando NodeJs, ORM, and Fastify.
+A **API Bíblia NVI** é um projeto desenvolvido para fornecer acesso programático às passagens da Bíblia Sagrada na versão Nova Versão Internacional (NVI). Este projeto foi criado com o objetivo de estudar e aplicar conceitos modernos de desenvolvimento de APIs utilizando tecnologias como Node.js, Fastify, Prisma e TypeScript.
 
 ### Objetivo
 
-API responsável por obter as passagens da Bíblia
+A API é ideal para aplicações frontend que exibem passagens bíblicas, como sistemas para igrejas. Além disso, ela oferece endpoints organizados para facilitar a consulta de livros, capítulos e versículos, além de endpoints para navegação entre os versículos.
 
+> [!Tip]
 > O frontend deste projeto [bible-vue](https://github.com/rribeiro1/bible-vue) foi desenvolvido com VueJs.
 
 ### Rotas
 
-> - **`GET` /books** Obtém a lista de livros disponíveis
-> - **`GET` /books/{:bookId}/chapters** Obtém a lista de capítulos disponíveis de um livro
-> - **`GET` /books/{:bookId}/chapters/{:chapterId}/verses** Obtém a lista de versículos de um livro e capítulo
-> - **`GET` /books/{:bookId}/chapters/{:chapterId}/verses/{:verseId}** Obtém um versículo
-> - **`GET` /verses/:id** Obtém uma passagem pelo ID
-> - **`GET` /verses/:id/next** Obtém a pŕoxima passagem pelo ID
-> - **`GET` /verses/:id/previous** Obtém a passagem anterior pelo ID
+> - **`GET` /books** Obtém a lista de livros disponíveis.
+> - **`GET` /books/{:bookId}/chapters** Obtém a lista de capítulos disponíveis de um livro.
+> - **`GET` /books/{:bookId}/chapters/{:chapterId}/verses** Obtém a lista de versículos de um livro e capítulo.
+> - **`GET` /books/{:bookId}/chapters/{:chapterId}/verses/{:verseId}** Obtém um versículo dado um livro e capítulo.
+> - **`GET` /verses/:id** Obtém uma passagem pelo ID.
+> - **`GET` /verses/:id/next** Obtém a pŕoxima passagem pelo ID.
+> - **`GET` /verses/:id/previous** Obtém a passagem anterior pelo ID.
 
 ### Pré-requisitos
 
-- **Node.js** versão 8 ou superior;
-- **Nodemon** - `npm i -g nodemon`
-- **pm2** - `npm i -g pm2` para produção
+- [Node.js](https://nodejs.org/en/download) versão 18 ou superior
+- [Docker](https://www.docker.com/products/docker-desktop/) Docker
 
 ### Começando
 
 1. Faça o clone do repositório e no terminal navegue até a pasta;
-2. Instale as dependências do projeto com `npm install`;
-3. Faça uma cópia do **.env.example** com o nome **.env** e adicione as informações de conexão com seu banco de dados MySQL (produção e teste).
-4. Na pasta **sql** se encontra o arquivo: **nvi.sql**. Utilize-os para criar o banco de dados, tabelas e inserção de dados;
-5. Rode o servidor de desenvolvimento com `npm run dev` ou modo produção com `npm run production`;
-6. Rode os testes com `npm test`. Para observar os arquivos durante o desenvolvimento utilize `npm test -- --watch`;
-7. O *endpoint* do serviço estará disponível em http://localhost:3003 .
 
-### Rodando com Docker
+``` bash
+git clone git@github.com:rribeiro1/bible-edge.git
+```
 
-- Criar a imagem
-> docker build -t bible-edge:latest
+2. Instale as dependências do projeto;
 
-- Criar Container
-> docker run -p 8080:8080 -d -t bible-edge:latest
+``` bash
+npm i
+```
 
-- Iniciar bash a partir do Container
-> docker exec -it <container id> /bin/bash
+3. Faça uma cópia do **.env.example** com o nome **.env** e adicione as informações de conexão com o banco de dados Postgres.
+
+``` bash
+cp .env.example .env
+```
+
+4. Suba o banco de dados com docker compose.
+
+``` bash
+docker compose up
+```
+
+5. Migre o schema do banco de dados
+
+``` bash
+npm run database:migrate
+```
+
+6. Import o script de inserção dos dados da Bíblia
+
+> [!Tip]
+> Na pasta **seed** se encontra o arquivo: **data.sql**. Utilize-os para inserção de dados
+
+``` bash
+npm run database:seed
+```
+
+> [!Note]
+> O comando pode ser um pouco diferente em outros sistemas como Windows.
+
+7. Rode o servidor de desenvolvimento
+
+``` bash
+npm run dev
+```
+
+8. Rode os testes
+
+Utilize um dos métodos abaixo para rodar os tests unitários
+
+``` bash
+npm run test
+npm run test:ui
+npm run test:coverage
+```
+
+9. O servidor com os *endpoints* do serviço estará disponível em http://localhost:3000
 
 ### Sugestão
 
@@ -55,5 +96,8 @@ Utilize o Postman para testar suas chamadas. [https://www.getpostman.com/](https
 
 ### Tecnologias
 
-- **MySQL:** Banco de dados relacional;
-- **NodeJs** Framework desenvolvimento Javascript.
+- **Postgres:** Banco de dados relacional utilizado para armazenar os dados da Bíblia.
+- **Node.js:** Plataforma para desenvolvimento de aplicações em JavaScript no lado do servidor.
+- **Fastify:** Miro-framework web para construção de APIs.
+- **Prisma:** ORM (Object-Relational Mapping) moderno para interagir com o banco de dados de forma simples e tipada.
+- **TypeScript:** Superset do JavaScript que adiciona tipagem estática, aumentando a segurança e a produtividade no desenvolvimento.
