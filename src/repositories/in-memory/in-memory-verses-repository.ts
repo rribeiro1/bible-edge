@@ -1,5 +1,5 @@
 import { Verse } from '@prisma/client'
-import { Chapters, Verses, VersesRepository } from '../verses-repository'
+import { VersesRepository } from '../verses-repository'
 
 export class InMemoryVersesRepository implements VersesRepository {
   private items: Verse[] = [
@@ -37,11 +37,11 @@ export class InMemoryVersesRepository implements VersesRepository {
     },
   ]
 
-  async findById(id: number): Promise<Verse | null> {
+  async findById(id: number) {
     return this.items.find((verse) => verse.id === id) || null
   }
 
-  async findChapterNumbers(bookId: number): Promise<Chapters | null> {
+  async findChapterNumbers(bookId: number) {
     const chapters = this.items
       .filter((verse) => verse.book_id === bookId)
       .map((verse) => verse.chapter)
@@ -49,10 +49,7 @@ export class InMemoryVersesRepository implements VersesRepository {
     return uniqueChapters.length > 0 ? { chapters: uniqueChapters } : null
   }
 
-  async findVerseNumbers(
-    bookId: number,
-    chapterId: number,
-  ): Promise<Verses | null> {
+  async findVerseNumbers(bookId: number, chapterId: number) {
     const verses = this.items
       .filter(
         (verse) => verse.book_id === bookId && verse.chapter === chapterId,
@@ -62,10 +59,7 @@ export class InMemoryVersesRepository implements VersesRepository {
     return uniqueVerses.length > 0 ? { verses: uniqueVerses } : null
   }
 
-  async findManyByBookAndChapter(
-    bookId: number,
-    chapterId: number,
-  ): Promise<Verse[]> {
+  async findManyByBookAndChapter(bookId: number, chapterId: number) {
     return this.items.filter(
       (verse) => verse.book_id === bookId && verse.chapter === chapterId,
     )

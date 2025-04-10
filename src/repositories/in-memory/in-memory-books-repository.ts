@@ -17,7 +17,7 @@ export class InMemoryBooksRepository implements BooksRepository {
     },
   ]
 
-  async findAll(): Promise<Book[]> {
+  async findAll() {
     return this.items
   }
 }

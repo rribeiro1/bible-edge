@@ -1,6 +1,6 @@
 import { InMemoryVersesRepository } from '@/repositories/in-memory/in-memory-verses-repository'
 import { ResourceNotFoundError } from '@/use-cases/errors/resource-not-found-error'
-import { GetVersesByBookAndChapterUseCase } from '@/use-cases/get-verse-by-book-and-chapter-use-case'
+import { GetVersesByBookAndChapterUseCase } from '@/use-cases/get-verses-by-book-and-chapter-use-case'
 import { expect, describe, it, beforeEach } from 'vitest'
 
 let versesRepository: InMemoryVersesRepository

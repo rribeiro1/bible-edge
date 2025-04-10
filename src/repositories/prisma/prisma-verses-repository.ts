@@ -1,16 +1,15 @@
-import { Book, Verse } from '@prisma/client'
 import { prisma } from '@/repositories/prisma/prisma'
-import { Chapters, Verses, VersesRepository } from '../verses-repository'
+import { VersesRepository } from '../verses-repository'
 
 export class PrismaVersesRepository implements VersesRepository {
-  async findById(id: string): Promise<Verse | null> {
+  async findById(id: number) {
     const verseId = Number(id)
     return await prisma.verse.findUnique({
       where: { id: verseId },
     })
   }
 
-  async findChapterNumbers(bookId: number): Promise<Chapters | null> {
+  async findChapterNumbers(bookId: number) {
     const chapters = await prisma.verse.findMany({
       where: { book_id: { equals: bookId } },
       distinct: ['chapter'],
@@ -21,10 +20,7 @@ export class PrismaVersesRepository implements VersesRepository {
     return chaptersList.length ? { chapters: chaptersList } : null
   }
 
-  async findVerseNumbers(
-    bookId: number,
-    chapterId: number,
-  ): Promise<Verses | null> {
+  async findVerseNumbers(bookId: number, chapterId: number) {
     const bookIdNumber = Number(bookId)
     const chapterIdNumber = Number(chapterId)
     const verses = await prisma.verse.findMany({
@@ -35,10 +31,7 @@ export class PrismaVersesRepository implements VersesRepository {
     return versesList.length ? { verses: versesList } : null
   }
 
-  async findManyByBookAndChapter(
-    bookId: string,
-    chapterId: string,
-  ): Promise<Verse[]> {
+  async findManyByBookAndChapter(bookId: number, chapterId: number) {
     const bookIdNumber = Number(bookId)
     const chapterIdNumber = Number(chapterId)
     return await prisma.verse.findMany({
@@ -46,7 +39,7 @@ export class PrismaVersesRepository implements VersesRepository {
     })
   }
 
-  async findAll(): Promise<Book[]> {
+  async findAll() {
     return await prisma.book.findMany()
   }
 }
