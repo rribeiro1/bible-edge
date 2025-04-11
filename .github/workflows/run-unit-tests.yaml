@@ -30,8 +30,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Seed the database
-        run: npm run database:seed
+      - name: Migrate and seed the database
+        run: |
+          npm run database:migrate
+          npm run database:seed
 
       - name: Run unit tests with coverage
         run: npm run test:coverage
