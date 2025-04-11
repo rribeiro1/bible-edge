@@ -1,11 +1,21 @@
-name: Run Unit Tests
+name: Run Tests
 
 on: [push]
 
 jobs:
-  run-unit-tests:
-    name: Run Unit Tests
+  run-tests:
+    name: Run Tests
     runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: 'bitnami/postgresql'
+        ports:
+          - '5432:5432'
+        env:
+          POSTGRESQL_DATABASE: bible
+          POSTGRESQL_USERNAME: docker
+          POSTGRESQL_PASSWORD: docker
 
     steps:
       - name: Checkout the code
@@ -19,6 +29,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Seed the database
+        run: npm run database:seed
 
       - name: Run unit tests with coverage
         run: npm run test:coverage
