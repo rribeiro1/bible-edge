@@ -1,0 +1,13 @@
+name: Keep Render API Warm
+
+on:
+  schedule:
+    - cron: '*/5 * * * *' # every 5 minutes
+  workflow_dispatch:
+
+jobs:
+  ping-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl public endpoint
+        run: curl --silent --show-error --fail --location https://bible-edge.onrender.com/verses/1
