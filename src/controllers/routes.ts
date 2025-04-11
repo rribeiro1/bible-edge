@@ -5,8 +5,10 @@ import { getVerseById } from './verses/one'
 import { getNextVerse } from './verses/next'
 import { getPreviousVerse } from './verses/previous'
 import { getVersesByBookAndChapter } from './verses/all-by-book-and-chapter'
+import { healthCheck } from './health-check'
 
 export async function bibleRoutes(app: FastifyInstance) {
+  app.get('/', healthCheck)
   app.get('/books', getAllBooks)
   app.get('/books/:bookId/chapters', getChapterNumbersByBook)
   app.get(
