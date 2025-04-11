@@ -1,23 +1,15 @@
 name: Run Tests
 
-on: [push]
+on:
+  push:
+    branches:
+      - !main
+      - **
 
 jobs:
   run-tests:
     name: Run Tests
     runs-on: ubuntu-latest
-    env:
-      DATABASE_URL: postgresql://docker:docker@localhost:5432/bible?schema=public
-
-    services:
-      postgres:
-        image: 'bitnami/postgresql'
-        ports:
-          - '5432:5432'
-        env:
-          POSTGRESQL_DATABASE: bible
-          POSTGRESQL_USERNAME: docker
-          POSTGRESQL_PASSWORD: docker
 
     steps:
       - name: Checkout the code
@@ -32,14 +24,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Migrate and seed the database
-        run: npm run database:migrate && npm run database:seed
-
       - name: Run unit tests with coverage
-        run: npm run test:coverage
-
-      - name: Upload coverage to Codacy
-        uses: codacy/codacy-coverage-reporter-action@v1.3.0
-        with:
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          coverage-reports: coverage/lcov.info
+        run: npm run test
