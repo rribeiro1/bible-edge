@@ -6,6 +6,8 @@ jobs:
   run-tests:
     name: Run Tests
     runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: postgresql://docker:docker@localhost:5432/bible?schema=public
 
     services:
       postgres:
@@ -32,8 +34,6 @@ jobs:
 
       - name: Migrate and seed the database
         run: npm run database:migrate && npm run database:seed
-        env:
-          DATABASE_URL: postgresql://docker:docker@localhost:5432/bible?schema=public
 
       - name: Run unit tests with coverage
         run: npm run test:coverage
