@@ -14,7 +14,6 @@ describe('Verses (e2e)', () => {
   it('should be able to get the next verse by id', async () => {
     const verseResponse = await request(app.server).get('/verses/1/next')
     expect(verseResponse.statusCode).toEqual(200)
-    console.log(verseResponse.body)
     expect(verseResponse.body.verse).toEqual({
       book_id: 0,
       chapter: 1,

@@ -16,7 +16,6 @@ describe('Verses (e2e)', () => {
       '/books/0/chapters/1/verses',
     )
     expect(versesResponse.statusCode).toEqual(200)
-    console.log(versesResponse.body)
     expect(versesResponse.body.verses).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
