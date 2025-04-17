@@ -2,7 +2,7 @@ name: Keep Render API Warm
 
 on:
   schedule:
-    - cron: '*/30 * * * *' # every 5 minutes
+    - cron: '*/5 * * * *' # every 5 minutes
   workflow_dispatch:
 
 jobs:
